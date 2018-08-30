@@ -1,8 +1,14 @@
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
 let g:lightline = {
-      \ 'colorscheme': 'base16',
+      \ 'colorscheme': 'breezy',
       \ }
+
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
 
 set nocompatible
 filetype off
@@ -38,14 +44,15 @@ Plugin 'w0rp/ale'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'chriskempson/base16-vim'
 Plugin 'daviesjamie/vim-base16-lightline'
+Plugin 'fneu/breezy'
 Plugin 'tmhedberg/SimpylFold'
 
 Plugin 'maralla/completor.vim'
 
 call vundle#end()
 
-set background=dark
-colorscheme base16-default-dark
+set background=light
+colorscheme breezy
 highlight BadWhitespace ctermbg=darkgreen guibg=darkgreen
 filetype plugin indent on
 
