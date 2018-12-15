@@ -1,7 +1,17 @@
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+let g:ycm_enable_diagnostic_highlighting = 0
+
 let g:lightline = {
       \ 'colorscheme': 'breezy',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
       \ }
 
 if exists('+termguicolors')
@@ -47,19 +57,20 @@ Plugin 'daviesjamie/vim-base16-lightline'
 Plugin 'fneu/breezy'
 Plugin 'tmhedberg/SimpylFold'
 
-Plugin 'maralla/completor.vim'
+Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
 
 set background=light
 colorscheme breezy
 highlight BadWhitespace ctermbg=darkgreen guibg=darkgreen
+let g:ale_set_highlights = 0
 filetype plugin indent on
 
 set foldmethod=indent
 set foldlevel=99
 
-let mapleader = "," 
+let mapleader = ","
 inoremap jk <esc>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
