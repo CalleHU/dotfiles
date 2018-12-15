@@ -1,7 +1,7 @@
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
 let g:lightline = {
-      \ 'colorscheme': 'breezy',
+      \ 'colorscheme': 'base16',
       \ }
 
 if exists('+termguicolors')
@@ -40,19 +40,26 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
 Plugin 'nvie/vim-flake8'
-Plugin 'w0rp/ale'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'chriskempson/base16-vim'
 Plugin 'daviesjamie/vim-base16-lightline'
 Plugin 'fneu/breezy'
 Plugin 'tmhedberg/SimpylFold'
+Plugin 'rdnetto/YCM-Generator'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
-Plugin 'maralla/completor.vim'
+Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
 
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/.ycm_extra_conf.py'
+let g:ycm_autoclose_preview_window_after_insertion = 1
+
+let g:tex_flavor = "latex"
+
 set background=light
-colorscheme breezy
+colorscheme base16-default-dark
 highlight BadWhitespace ctermbg=darkgreen guibg=darkgreen
 filetype plugin indent on
 
@@ -71,9 +78,9 @@ nnoremap <leader>b :buffers<CR>:buffer<space>
 nnoremap <leader>c :w<CR>:!rubber --pdf --warn all %<CR>:!pkill -HUP mupdf<CR> |
 nnoremap <leader>v :!mupdf -r 110 %:r.pdf &<CR><CR>
 
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
+let g:UltiSnipsExpandTrigger = '<C-j>'
+let g:UltiSnipsJumpForwardTrigger = '<C-j>'
+let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 
 set laststatus=2
 
