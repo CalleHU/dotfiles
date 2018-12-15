@@ -7,6 +7,5 @@ alias o='xdg-open'
 alias ls='ls --color'
 
 export EDITOR='vim'
-export GREP_OPTIONS=' — color=auto'
 
 bind 'set completion-ignore-case on'
