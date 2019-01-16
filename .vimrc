@@ -1,7 +1,17 @@
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+let g:ycm_enable_diagnostic_highlighting = 0
+
 let g:lightline = {
-      \ 'colorscheme': 'base16',
+      \ 'colorscheme': 'breezy',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
       \ }
 
 if exists('+termguicolors')
@@ -64,10 +74,11 @@ let g:tex_flavor = "latex"
 set background=light
 colorscheme base16-default-dark
 highlight BadWhitespace ctermbg=darkgreen guibg=darkgreen
+let g:ale_set_highlights = 0
 filetype plugin indent on
 
 
-let mapleader = "," 
+let mapleader = ","
 inoremap jk <esc>
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
