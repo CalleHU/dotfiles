@@ -22,11 +22,13 @@ set noshowmode
 set ignorecase
 set smartcase
 set hidden
+set number relativenumber
 
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set autoindent
+set smartindent
 set linebreak
 set expandtab
 
@@ -48,7 +50,8 @@ Plugin 'tmhedberg/SimpylFold'
 Plugin 'rdnetto/YCM-Generator'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-
+Plugin 'junegunn/fzf.vim'
+Plugin 'neovimhaskell/haskell-vim'
 Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
@@ -63,8 +66,6 @@ colorscheme base16-default-dark
 highlight BadWhitespace ctermbg=darkgreen guibg=darkgreen
 filetype plugin indent on
 
-set foldmethod=indent
-set foldlevel=99
 
 let mapleader = "," 
 inoremap jk <esc>
@@ -74,7 +75,8 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 nnoremap <space> za
 
-nnoremap <leader>b :buffers<CR>:buffer<space>
+nnoremap <leader><space> :Files <CR>
+nnoremap <leader>b :Buffers <CR>
 nnoremap <leader>c :w<CR>:!rubber --pdf --warn all %<CR>:!pkill -HUP mupdf<CR> |
 nnoremap <leader>v :!mupdf -r 110 %:r.pdf &<CR><CR>
 
