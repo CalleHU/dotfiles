@@ -6,7 +6,7 @@ alias ....='cd ../../..'
 alias o='xdg-open'
 alias ls='ls --color'
 
-export EDITOR='vim'
+export EDITOR='nvim'
 
 bind 'set completion-ignore-case on'
 
